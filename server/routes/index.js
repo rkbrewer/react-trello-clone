@@ -89,7 +89,7 @@ router.post('/api/lists', async (req, res) => {
       }
     });
 
-    board.createList({ title: 'New List' });
+    board.createList({ title: req.body.title || 'New List' });
 
     res.json(board);
   } catch (error) {

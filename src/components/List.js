@@ -16,13 +16,13 @@ const List = props => {
   };
 
   return (
-    <Col md={3} className="list">
+    <div className="list">
       <EditableListTitle id={props.id} title={props.title} />
       {
         props.Cards.map(card => <ListCard {...card} key={card.id} />)
       }
-      <Button onClick={createListCard}>+ Add Card</Button>
-    </Col>
+      <Button className="w-100" onClick={createListCard}>+ Add Card</Button>
+    </div>
   );
 };
 

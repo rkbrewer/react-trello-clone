@@ -19,10 +19,13 @@ export default {
     }
   },
   lists: {
-    async update(id, data) {
+    create({ boardId, title }) {
+      return axios.post(`http://localhost:3000/api/lists`, { boardId, title });
+    },
+    update(id, data) {
       return axios.put(`http://localhost:3000/api/lists/${id}`, data);
     },
-    async delete(id) {
+    delete(id) {
       return axios.delete(`http://localhost:3000/api/lists/${id}`);
     }
   },

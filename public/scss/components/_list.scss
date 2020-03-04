@@ -2,9 +2,19 @@
   background: $gray-500;
   border-radius: $border-radius;
   padding: 0.5rem;
-  margin: 0.5rem 0 ;
+  margin: 0.5rem 0;
+
+  @include media-breakpoint-up(md) {
+    width: 300px;
+  }
 }
 
 .list + .list {
-  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+.list--create {
+  .form-control {
+    margin-bottom: 0.5rem;
+  }
 }

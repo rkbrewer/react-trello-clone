@@ -10,6 +10,7 @@ import { CardEditorContext } from '@/context/CardEditorContext';
 import { BoardContext } from '@/context/BoardContext';
 
 import CardEditor from '@/components/CardEditor';
+import CreateList from '@/components/CreateList';
 import EditableBoardTitle from '@/components/Board.EditableTitle';
 import Layout from '@/layouts/default';
 import List from '@/components/List';
@@ -48,16 +49,19 @@ const BoardPage = (props) => {
           </Col>
         </Row>
         <Row>
-          {
-            board.Lists.map(list => (
-              <Col key={list.id}>
-                <CardEditorContext.Provider value={{ id: cardEditorId, setId: setCardEditorId }}>
-                  <List {...list} />
-                  <CardEditor />
-                </CardEditorContext.Provider>
-              </Col>
-            ))
-          }
+          <Col>
+            <div className="list-container">
+              {
+                board.Lists.map(list => (
+                  <CardEditorContext.Provider key={list.id} value={{ id: cardEditorId, setId: setCardEditorId }}>
+                    <List {...list} />
+                    <CardEditor />
+                  </CardEditorContext.Provider>
+                ))
+              }
+              <CreateList boardId={board.id} />
+            </div>
+          </Col>
         </Row>
       </BoardContext.Provider>
     </Layout>
