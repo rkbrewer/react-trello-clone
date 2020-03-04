@@ -156,11 +156,12 @@ router.get('/api/cards/:id', async (req, res) => {
 
 router.put('/api/cards/:id', async (req, res) => {
   const { id } = req.params;
-  const { title, description } = req.body;
+  const { title, description, listId } = req.body;
 
   const card = await models.Card.update({
     title,
-    description
+    description,
+    ListId: listId
   }, {
     where: {
       id: Number(id)

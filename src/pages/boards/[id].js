@@ -39,10 +39,10 @@ const BoardPage = (props) => {
 
   return (
     <Layout>
-      <BoardContext.Provider value={{ loadBoard }} >
+      <BoardContext.Provider value={{ loadBoard }}>
         <Row>
           <Col md="auto">
-            <EditableBoardTitle id={board.id} title={board.title} />
+            <EditableBoardTitle id={board.id} title={board.title}/>
           </Col>
           <Col>
             <Button variant="danger" onClick={destroyBoard}>Delete</Button>
@@ -55,11 +55,11 @@ const BoardPage = (props) => {
                 board.Lists.map(list => (
                   <CardEditorContext.Provider key={list.id} value={{ id: cardEditorId, setId: setCardEditorId }}>
                     <List {...list} />
-                    <CardEditor />
+                    <CardEditor/>
                   </CardEditorContext.Provider>
                 ))
               }
-              <CreateList boardId={board.id} />
+              <CreateList boardId={board.id}/>
             </div>
           </Col>
         </Row>
@@ -69,9 +69,9 @@ const BoardPage = (props) => {
 };
 
 BoardPage.getInitialProps = async (context) => {
-  const {id} = context.query;
+  const { id } = context.query;
 
-  const {data} = await api.boards.fetchOne(id);
+  const { data } = await api.boards.fetchOne(id);
 
   return {
     board: data
