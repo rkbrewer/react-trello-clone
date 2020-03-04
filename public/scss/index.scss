@@ -1,0 +1,13 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+
+@import "components/list-card";
+@import "components/list";
+
+@import 'pages/board';
+
+
+html, body {
+  margin: 0;
+  background-color: darken($primary, 10%);
+}

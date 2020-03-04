@@ -2,6 +2,9 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+// Formik
+// Joi - form validation, Yep is based off it.
+
 function App() {
   return (
     <div className="App">
